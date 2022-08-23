@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import props from '../mocks/profile-data';
 
 const ProfileStyled = styled.div`
   grid-area: profile;
@@ -46,36 +47,55 @@ const ProfileStyled = styled.div`
 `;
 
 function Profile() {
+  const {
+    name,
+    login,
+    avatar_url,
+    bio,
+    followers,
+    following,
+    location,
+    blog,
+    html_url,
+    twitter_username,
+  } = props;
   return (
     <ProfileStyled>
-      <img className="avatar" src="" alt="" width="278" height="278" />
-      <p className="name">Erick Pérez</p>
-      <p className="username">erickleaopm</p>
+      <img
+        className="avatar"
+        src={avatar_url}
+        alt=""
+        width="278"
+        height="278"
+      />
+      <p className="name">{name}</p>
+      <p className="username">{login}</p>
       <div className="buttons">
         <button>Follow</button>
         <button>Sponsors</button>
       </div>
-      <p className="bio info">Hola mundo!</p>
+      <p className="bio info">{bio}</p>
       <p className="followers info">
-        * 10 <span>followers</span> * 15 <span>following</span>
+        * {followers} <span>followers</span> * {following}{' '}
+        <span>following</span>
       </p>
-      <p className="stars info">* 80</p>
-      <p className="location info">Culiacan</p>
+      {/* <p className="stars info">* 80</p> */}
+      <p className="location info">{location}</p>
       <a
         className="info"
         href="https://erickleaopm.github.com"
         target="_blank"
         rel="noreferrer"
       >
-        website
+        {blog || html_url}
       </a>
       <a
         className="info"
-        href="https://twitter.com/erickleaopm"
+        href={`https://twitter.com/${twitter_username}`}
         target="_blank"
         rel="noreferrer"
       >
-        @erickleaopm
+        {twitter_username}
       </a>
     </ProfileStyled>
   );
