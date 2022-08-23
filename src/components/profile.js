@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-const ProfileStyled = styled.div``;
+const ProfileStyled = styled.div`
+  grid-area: profile;
+`;
 
 function Profile() {
   return <ProfileStyled>Profile</ProfileStyled>;
