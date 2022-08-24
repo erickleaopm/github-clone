@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import props from '../mocks/profile-data';
 import Button from './button';
+import Icon from '../icon';
 
 const ProfileStyled = styled.div`
   grid-area: profile;
@@ -73,7 +74,10 @@ function Profile() {
       <p className="username">{login}</p>
       <div className="buttons">
         <Button text="Follow" link="*" />
-        <Button text="Sponsors" icon={<i>*</i>} />
+        <Button
+          text="Sponsors"
+          icon={<Icon name="heart" size={24} color="var(--pink)" />}
+        />
       </div>
       <p className="bio info">{bio}</p>
       <p className="followers info">
